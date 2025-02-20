@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Nexus Auto Connect",
+  "version": "1.0",
+  "description": "自动重连Nexus",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://app.nexus.xyz/*"
+  ],
+  "action": {
+    "default_title": "Nexus Auto Connect"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://app.nexus.xyz/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+} 
